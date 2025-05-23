@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     PlayerMovement player;
     Animator anim;
+    public AudioSource sfx;
+    public AudioClip zombieSound;
+    bool once;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,11 @@ public class Enemy : MonoBehaviour
         if(Vector3.Distance(transform.position, player.transform.position)<3)
         {
             anim.SetTrigger("attack");
+            if(!once)
+            {
+                once = true;
+                sfx.PlayOneShot(zombieSound);
+            }
         }
     }
 }
