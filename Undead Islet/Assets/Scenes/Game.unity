@@ -1515,7 +1515,7 @@ PrefabInstance:
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 97.82736
+      value: 101.5
       objectReference: {fileID: 0}
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562,
         type: 3}
@@ -2227,8 +2227,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use W,A,S,D to move and mouse to rotate\nPick up the sword and use LMB
-    to \nAttack..."
+  m_text: "Use W,A,S,D to move and mouse to rotate, use Space to Jump\n\nPick up
+    the sword and use LMB to \nAttack...SURVIVE!!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 82ca39d88e4158f438a8b129b7a628c4, type: 2}
   m_sharedMaterial: {fileID: -7273872209602458525, guid: 82ca39d88e4158f438a8b129b7a628c4,
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  attackRadius: 2
+  attackRadius: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
