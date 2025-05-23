@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource sfx;
     public AudioClip slashSound;
+
+    public LayerMask enemyLayer;
+    public Transform damagePoint;
+    public float attackRadius;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -37,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("attack");
+        }
+
+        bool enemyHit = Physics.CheckSphere(transform.position, 1f, enemyLayer);
+
+        if(enemyHit)
+        {
+            SceneManager.LoadScene("Lose");
         }
         
     }
@@ -77,5 +89,17 @@ public class PlayerMovement : MonoBehaviour
         turn.x += Input.GetAxis("Mouse X");
         turn.y += Input.GetAxis("Mouse Y");
         transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+    }
+
+    public void Damage()
+    {
+        Collider[] hit = Physics.OverlapSphere(damagePoint.position, attackRadius, enemyLayer);
+        if (hit.Length > 0)
+        {
+            foreach (Collider col in hit)
+            {
+                Destroy(col.gameObject);
+            }
+        }
     }
 }
